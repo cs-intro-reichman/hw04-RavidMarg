@@ -5,7 +5,7 @@ public class ArrayOps {
         for(int i=0; i<size; i++) {
             int_arr[i] = Integer.parseInt(args[i]);
         }
-        // testFindMissingInt(int_arr);
+        //testFindMissingInt(int_arr);
         // testSecondMaxValue(int_arr);
         // testContainsTheSameElements();
         // testIsSorted(int_arr);
@@ -50,12 +50,21 @@ public class ArrayOps {
         }
     }
 
+    public static boolean arrayDoesNotContainInt(int[] array, int target) {
+        for (int element : array) {
+            if (element == target) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static int findMissingInt (int [] array) {
         sortArray(array);
         int missing_int = 0;
         for (int i = 0; i < array.length; i++) {
-            if ((array[i] + 1) != array[i + 1]){ // This function assumes that each number aapears once in the given array
-                missing_int = array[i] + 1;
+            if (arrayDoesNotContainInt(array, i)){
+                missing_int = i;
                 break;
             }
         }
