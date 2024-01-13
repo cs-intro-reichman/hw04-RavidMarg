@@ -36,11 +36,13 @@ public class StringOps {
     }
 
     public static boolean isVowel(char test_char) {
-        return "aeiou".indexOf(test_char) != -1;
+        test_char = toLowerCase(test_char);
+        return ("aeiou".indexOf(test_char) != -1);
     }
 
     public static char toUpperCase(char char_to_upper ){
         if (char_to_upper >= 97 && char_to_upper <= 122) {
+
             char_to_upper = (char) (char_to_upper - 32);
         }
         return char_to_upper;
