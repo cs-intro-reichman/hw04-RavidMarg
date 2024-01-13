@@ -5,7 +5,7 @@ public class ArrayOps {
         for(int i=0; i<size; i++) {
             int_arr[i] = Integer.parseInt(args[i]);
         }
-        //testFindMissingInt(int_arr);
+        // testFindMissingInt(int_arr);
         // testSecondMaxValue(int_arr);
         // testContainsTheSameElements();
         // testIsSorted(int_arr);
@@ -62,7 +62,7 @@ public class ArrayOps {
     public static int findMissingInt (int [] array) {
         sortArray(array);
         int missing_int = 0;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i <= array.length; i++) {
             if (arrayDoesNotContainInt(array, i)){
                 missing_int = i;
                 break;
@@ -102,11 +102,21 @@ public class ArrayOps {
 
 
     public static boolean isSorted(int [] array) {
+        boolean result = true;
+        // normal sorted
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] > array[i + 1])
-                return false;
+                 result = false;
         }
-        return true;
+        // reverse sorted
+        if (! result) {
+            result = true;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] < array[i + 1])
+                    result = false;
+            }
+        }
+        return result;
     }
 
 }
